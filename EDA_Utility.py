@@ -36,7 +36,7 @@ def time_series_analysis(df, city):
     tmp = df.groupby('date')[['price']].aggregate('mean')
 
     # Price by time plot
-    plt.figure(figsize=(15, 8))
+    plt.figure(figsize=(16, 8))
 
     sns.lineplot(x='date', y='price', data=tmp)
     sns.set_theme(font_scale=1.25)
@@ -58,7 +58,7 @@ def time_series_analysis(df, city):
     residual = decompose_result.resid
 
     # Decomposition plotting
-    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(15, 12))
+    fig, (ax1, ax2, ax3, ax4) = plt.subplots(4, 1, figsize=(16, 12))
 
     observe.plot(ax=ax1)
     ax1.set_ylabel('Observed')
@@ -91,7 +91,7 @@ def weekday_decomposition(df):
     tmp = df.groupby(['month', 'weekday']).mean()[['price']].reset_index()
 
     # Visualization
-    plt.figure(figsize=(15, 8))
+    plt.figure(figsize=(16, 8))
     sns.lineplot(data=tmp, x='weekday', y='price', hue='month', palette='deep')
     sns.set_theme(font_scale=1.25)
     plt.legend(bbox_to_anchor=(1.05, 1), loc=2)
@@ -173,6 +173,7 @@ def word_freq_plot(text, sentiment, ax):
     title = '{} Reviews'.format(sentiment)
 
     sns.barplot(x='freq', y='word', data=tmp, ax=ax)
+    sns.set_theme(font_scale=1.25)
     ax.set_xlabel('Count')
     ax.set_ylabel('')
     ax.set_title(title, fontsize=16)
@@ -188,7 +189,7 @@ def sentiment_plot(df):
     neg_text = " ".join(text for text in neg['clean_text'])
 
     # word frequency plot
-    fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(15, 9))
+    fig1, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 9))
     fig1.suptitle("Word Frequency of Customer Reviews", fontsize=18)
     word_freq_plot(pos_text, 'Positive', ax1)
     word_freq_plot(neg_text, 'Negative', ax2)
@@ -196,7 +197,7 @@ def sentiment_plot(df):
     plt.show()
 
     # wordclouds
-    fig2, (ax1, ax2) = plt.subplots(2, 1, figsize=(15, 20))
+    fig2, (ax1, ax2) = plt.subplots(2, 1, figsize=(16, 20))
     wc = WordCloud(background_color="white", max_words=1000, width=1500, height=900)
 
     ax1.imshow(wc.generate(pos_text), interpolation="bilinear")
@@ -240,11 +241,18 @@ def sentiment_analysis(df):
 
 
 def main():
-    seattle_calendar = pd.read_csv('Seattle_data/calendar.csv')
-    seattle_listings = pd.read_csv('Seattle_data/listings.csv')
-    seattle_reviews = pd.read_csv('Seattle_data/reviews.csv')
+    # import datasets
+    calendar = pd.read_csv('Seattle_data/calendar.csv')
+    reviews = pd.read_csv('Seattle_data/reviews.csv')
 
-    time_series_analysis(seattle_calendar)
+    # EDA for seattle
+    # Time series analysis
+    time_series_analysis(calendar, 'Seattle')
+    weekday_decomposition(calendar)
+
+    # Sentiment Analysis
+    sentiment_df = sentiment_analysis(reviews)
+    sentiment_plot(sentiment_df)
 
 
 if __name__ == '__main__':
