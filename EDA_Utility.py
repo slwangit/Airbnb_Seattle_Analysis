@@ -41,8 +41,8 @@ def time_series_analysis(df, city):
     sns.lineplot(x='date', y='price', data=tmp)
     sns.set_theme(font_scale=1.25)
     plt.gcf().autofmt_xdate()
-    plt.xlabel('Date')
-    plt.ylabel('Price')
+    plt.xlabel('Date', fontsize=16)
+    plt.ylabel('Price', fontsize=16)
     plt.title(title1, fontsize=18)
 
     plt.show()
@@ -96,8 +96,8 @@ def weekday_decomposition(df):
     sns.set_theme(font_scale=1.25)
     plt.legend(bbox_to_anchor=(1.05, 1), loc=2)
     plt.title('Price by Weekday and Month', fontsize=18)
-    plt.xlabel('Weekday')
-    plt.ylabel('Price')
+    plt.xlabel('Weekday', fontsize=16)
+    plt.ylabel('Price', fontsize=16)
 
     plt.show()
 
@@ -179,7 +179,7 @@ def word_freq_plot(text, sentiment, ax):
     ax.set_title(title, fontsize=16)
 
 
-def sentiment_plot(df):
+def sentiment_word_plots(df):
     # split positive and negative reviews
     pos = df[df['sentiment'] == 'positive']
     neg = df[df['sentiment'] == 'negative']
@@ -213,6 +213,7 @@ def sentiment_plot(df):
 
 
 def sentiment_analysis(df):
+    # feature engineering
     # clean text
     df = df.dropna(subset=['comments'])
     df['clean_text'] = df['comments'].apply(clean_text)
@@ -225,19 +226,22 @@ def sentiment_analysis(df):
     # classify sentiment
     df['sentiment'] = df['compound'].apply(sentiment_lable)
 
+    return df
+
+
+def sentiment_distribution(df):
     # sentiment plot
     tmp = df.sentiment.value_counts(normalize=True).reset_index()
     print(f'Sentiment distribution table:')
     print(tmp)
 
-    plt.figure(figsize=(15, 9))
+    plt.figure(figsize=(16, 9))
     sns.countplot(x="sentiment", data=df)
+    sns.set_theme(font_scale=1.25)
     plt.xlabel('Sentiment')
     plt.ylabel('Count')
     plt.title('Sentiment Distribution', fontsize=18)
     plt.show()
-
-    return df
 
 
 def main():
@@ -252,7 +256,7 @@ def main():
 
     # Sentiment Analysis
     sentiment_df = sentiment_analysis(reviews)
-    sentiment_plot(sentiment_df)
+    sentiment_word_plots(sentiment_df)
 
 
 if __name__ == '__main__':
