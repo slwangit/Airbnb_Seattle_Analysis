@@ -2,7 +2,14 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# ignore Mac system files
 **/.DS_Store
+
+# ignore auto created files
+.idea/
+.Rhistory
+
 
 # C extensions
 *.so
