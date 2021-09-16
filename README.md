@@ -45,9 +45,10 @@ More descriptive information can be found [here](https://www.kaggle.com/airbnb/s
 There are two `.py` files and one notebook file available here to showcase work related to the above questions. The 2 utility `.py` files are functions deployed for EDA and predictive analysis.
 For the whole workflow, results, and interpretation from a technical view, please refer to the `airbnb_analysis.ipynb`.
 
-####Visualization:
-There are 3 `.html` files of clean and organized presentation of results and plots. Since interactive maps of notebook don't work in Github repository, you may refer to `listing_map.html` and `neighbourhood_map.html`
-for `folium` maps. For an integrated notebook visualization, please refer to `airbnb_analysis.html`, where `airbnb_analysis.ipynb` were rendered through nbviewer.
+####Results and Report:
+There are 3 `.html` files of interactive maps and nbviewer notebook. Since interactive maps in the notebook don't work in Github repository, you may refer to `listing_map.html` and `neighbourhood_map.html`
+for `folium` maps. For an integrated notebook report, please see the nbviewer rendered notebook `airbnb_analysis.html` or [here](https://nbviewer.jupyter.org/github/slwangit/airbnb_seattle_analysis/blob/main/airbnb_analysis.ipynb).
+This is an organized report with results and interpretation from the analyst's point of view. 
 
 ## Results
 The main findings and report can be found in the post available [here](https://medium.com/@slwang0507/how-do-customers-feel-about-their-stay-in-seattle-with-airbnb-20f41ec00223).
