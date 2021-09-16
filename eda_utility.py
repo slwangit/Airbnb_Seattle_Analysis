@@ -63,7 +63,7 @@ def busiest_time(df, city):
     plt.show()
 
     # sorted table
-    sorted_table = groupby_month.sort_values('count')
+    sorted_table = groupby_month.sort_values('count', ascending=False).reset_index(drop=True)
 
     return sorted_table
 
@@ -341,6 +341,7 @@ def listing_distribution_map(df, location):
     :return: a folium marker map object of listings scattered in Seattle, with room type legend and price popup
     """
     # plotting room type by price
+    prices = df.price  # assign an uncleaned version for map popup
     df['price'] = df['price'].replace({'\$': '', '%': '', ',': ''}, regex=True).astype(float)
 
     fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(16, 10))
@@ -363,7 +364,6 @@ def listing_distribution_map(df, location):
     # Loop through the listings adn add to the map
     latitude = df.latitude
     longitude = df.longitude
-    prices = df.price
     types = df.room_type
 
     for lat, lng, price, type in zip(latitude, longitude, prices, types):
@@ -452,6 +452,10 @@ def main():
     reviews = pd.read_csv('Seattle_data/reviews.csv')
 
     # EDA for seattle
+    # busy times
+    month_count = busiest_time(calendar, 'Seattle')
+    month_count
+
     # Time series analysis
     time_series_analysis(calendar, 'Seattle')
     weekday_decomposition(calendar)

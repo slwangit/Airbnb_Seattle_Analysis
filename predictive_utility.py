@@ -70,7 +70,7 @@ def clean_categorical_features(df):
     :return: an pandas dataframe
     """
     # check variability of categorical features
-    # remove strongly imbalance features since they tell little information and remove features with too many levels
+    # remove strongly imbalanced features since they tell little information and remove features with too many levels
     # remove n(dominant) > 3200(84%) or n(levels) >10
     summary = df[df.columns[df.dtypes == object]].describe()
     cols = summary.columns[(summary.loc['freq'] > 3200) | (summary.loc['unique'] > 10)]
