@@ -36,16 +36,16 @@ Visualization and descriptive analysis code can be found in `eda_utility.py`.
 For question4&5, I conducted **predictive modeling** on the 'price' variable in `listing.csv` using linear regression model. Details can be found in `predictive_utility.py`.
 
 ## File Descriptions<a name="files"></a>
-####Datasets:
+#### Datasets:
 This project is an analysis on 3 `.csv` files about calendar, listings, and reviews respectively. You can find them in the `Seattle_data` folder. 
 More descriptive information can be found [here](https://www.kaggle.com/airbnb/seattle?select=calendar.csv).
 
-####Coding:
+#### Coding:
 
 There are two `.py` files and one notebook file available here to showcase work related to the above questions. The 2 utility `.py` files are functions deployed for EDA and predictive analysis.
 For the whole workflow, results, and interpretation from a technical view, please refer to the `airbnb_analysis.ipynb`.
 
-####Results and Report:
+#### Results and Report:
 There are 3 `.html` files of interactive maps and nbviewer notebook. Since interactive maps in the notebook don't work in Github repository, you may refer to `listing_map.html` and `neighbourhood_map.html`
 for `folium` maps. For an integrated notebook report, please see the nbviewer rendered notebook `airbnb_analysis.html` or [here](https://nbviewer.jupyter.org/github/slwangit/airbnb_seattle_analysis/blob/main/airbnb_analysis.ipynb).
 This is an organized report with results and interpretation from the analyst's point of view. 
