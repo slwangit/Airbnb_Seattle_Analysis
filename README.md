@@ -1,5 +1,5 @@
 # Airbnb Seattle Analysis
-![test](https://github.com/slwangit/airbnb_seattle_analysis/wordcloud.png?raw=true)
+<img src='wordcloud.png' width="400"> <img src="map.png" width="400">
 
 ## Table of Contents
 1. [Installation](#installation)
