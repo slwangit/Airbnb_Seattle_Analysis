@@ -46,8 +46,8 @@ There are two `.py` files and one notebook file available here to showcase work 
 For the whole workflow, results, and interpretation from a technical view, please refer to the `airbnb_analysis.ipynb`.
 
 #### Results and Report:
-There are 3 `.html` files of interactive maps and nbviewer notebook. Since interactive maps in the notebook don't work in Github repository, you may refer to `listing_map.html` and `neighbourhood_map.html`
-for `folium` maps. For an integrated notebook report, please see the nbviewer rendered notebook `airbnb_analysis.html` or [here](https://nbviewer.jupyter.org/github/slwangit/airbnb_seattle_analysis/blob/main/airbnb_analysis.ipynb).
+Since interactive maps in the notebook don't work in Github repository, you may find the integrated notebook report 
+rendered by nbviewer [here](https://nbviewer.jupyter.org/github/slwangit/airbnb_seattle_analysis/blob/main/airbnb_analysis.ipynb).
 This is an organized report with results and interpretation from the analyst's point of view. 
 
 ## Results
